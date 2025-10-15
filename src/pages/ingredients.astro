@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+
+const ingredientDetails = [
+  {
+    name: 'Maqui Berry',
+    benefit: 'Promotes Mitochondria',
+    description: 'Rich in anthocyanins, particularly delphinidins that activate AMPK enzyme for cellular energy.',
+    benefits: ['Antioxidant support', 'Healthy heart', 'Healthy cholesterol'],
+    study: 'Cremonini et al. 2024 - Biochem Pharmacol',
+  },
+  {
+    name: 'Rhodiola Rosea',
+    benefit: 'Energy & Stress',
+    description: 'Adaptogenic herb with 140+ polyphenols that enhance mitochondrial ATP production and reduce fatigue.',
+    benefits: ['Improves mood', 'Brain health', 'Enhanced endurance'],
+    study: 'Abidov et al. 2003 - Bull Exp Biol Med',
+  },
+  {
+    name: 'Haematococcus (Astaxanthin)',
+    benefit: 'Cell Protection',
+    description: 'Powerful red antioxidant that protects mitochondria from oxidative stress and enhances fat metabolism during exercise.',
+    benefits: ['Joint health', 'Immune response', 'Muscle endurance'],
+    study: 'Nishida et al. 2020 - J Cachexia Sarcopenia Muscle',
+  },
+  {
+    name: 'Amla (Indian Gooseberry)',
+    benefit: 'Metabolic Health',
+    description: 'Rich in Vitamin C and antioxidants that improve mitochondrial function and metabolic parameters.',
+    benefits: ['Healthy digestion', 'Vision support', 'Immune boost'],
+    study: 'Yamamoto et al. 2016 - Oxid Med Cell Longev',
+  },
+  {
+    name: 'Theobroma Cacao',
+    benefit: 'Blood Flow Support',
+    description: 'Superfood overflowing with epicatechin, a flavonoid that enhances mitochondrial biogenesis and exercise performance.',
+    benefits: ['Healthy blood pressure', 'Mood enhancement', 'Cognitive support'],
+    study: 'Taub et al. 2012 - Clin Transl Sci',
+  },
+  {
+    name: 'Schisandra',
+    benefit: 'Liver & Energy',
+    description: 'Powerful calorie-burning red berries rich in antioxidant compounds that enhance mitochondrial activity.',
+    benefits: ['Liver health', 'Skin elasticity', 'Physical endurance'],
+    study: 'Kim & Yi 2018 - Naunyn Schmiedebergs Arch Pharmacol',
+  },
+];
+---
+
+<BaseLayout title="Mitolyn Ingredients - Science-Backed Formula" description="Learn about each ingredient in Mitolyn and how it supports mitochondrial health and fat loss.">
+  
+  <Section id="hero" bgColor="navy" title="The Science Behind Mitolyn" subtitle="6 Exotic Nutrients Clinically Proven to Boost Mitochondrial Function">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <p class="text-lg leading-relaxed">
+        Every ingredient in Mitolyn is carefully selected and scientifically validated to support healthy mitochondria—the "powerhouses" of your cells that burn fat and produce energy.
+      </p>
+    </div>
+  </Section>
+
+  <Section id="ingredients" title="Full Ingredient Breakdown">
+    <div class="space-y-8">
+      {ingredientDetails.map((ing, idx) => (
+        <div class="border-l-4 border-primary-500 pl-6">
+          <h3 class="font-display text-2xl font-bold text-navy-900 mb-2">{idx + 1}. {ing.name}</h3>
+          <p class="text-coral-600 font-semibold mb-4">{ing.benefit}</p>
+          <p class="text-gray-700 mb-4">{ing.description}</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card>
+              <h4 class="font-bold text-navy-900 mb-3">Key Benefits</h4>
+              <ul class="space-y-2">
+                {ing.benefits.map((benefit) => (
+                  <li class="flex items-center gap-2">
+                    <span class="text-primary-500">✓</span>
+                    <span class="text-gray-700">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+            
+            <Card>
+              <h4 class="font-bold text-navy-900 mb-3">Clinical Support</h4>
+              <p class="text-sm text-gray-700">{ing.study}</p>
+              <a href="#" class="text-primary-500 hover:text-primary-600 font-semibold text-sm mt-3 inline-block">
+                Read Study →
+              </a>
+            </Card>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section id="quality" bgColor="gray" title="Quality & Purity Guaranteed">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+      {[
+        { icon: '✓', label: 'GMP Certified Facility' },
+        { icon: '✓', label: 'Third-Party Tested' },
+        { icon: '✓', label: '100% Plant-Based' },
+        { icon: '✓', label: 'No Fillers Added' },
+      ].map((item) => (
+        <Card>
+          <div class="text-4xl mb-3">{item.icon}</div>
+          <p class="font-semibold text-navy-900">{item.label}</p>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+</BaseLayout>

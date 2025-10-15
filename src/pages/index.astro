@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+
+const testimonials = [
+  {
+    name: 'Peggy B.',
+    location: 'Rexton, MI',
+    weight_lost: 35,
+    text: 'I always felt self-conscious about my appearance. Since trying Mitolyn, I\'ve lost 35 pounds and finally enjoy looking in the mirror.',
+    rating: 5,
+  },
+  {
+    name: 'Russell L.',
+    location: 'Macon, GA',
+    weight_lost: 29,
+    text: 'My weight wouldn\'t budge. Mitolyn kick-started my metabolism and helped me shed 29 stubborn pounds.',
+    rating: 5,
+  },
+  {
+    name: 'Connie A.',
+    location: 'Montclair, NJ',
+    weight_lost: 40,
+    text: 'Being overweight made activities exhausting. After Mitolyn, I\'ve dropped 40 pounds and can keep up with my kids again!',
+    rating: 5,
+  },
+];
+
+const ingredients = [
+  { name: 'Maqui Berry', benefit: 'Antioxidant Support' },
+  { name: 'Rhodiola Rosea', benefit: 'Energy & Mood' },
+  { name: 'Astaxanthin', benefit: 'Cell Protection' },
+  { name: 'Amla', benefit: 'Metabolic Health' },
+  { name: 'Cacao', benefit: 'Blood Flow' },
+  { name: 'Schisandra', benefit: 'Liver Support' },
+];
+
+const pricingOptions = [
+  {
+    bottles: 1,
+    supply: '30 Day',
+    price: 79,
+    originalPrice: 79,
+    popular: false,
+    bonuses: 0,
+    shipping: 'Standard',
+  },
+  {
+    bottles: 3,
+    supply: '90 Day',
+    price: 177,
+    originalPrice: 237,
+    popular: false,
+    bonuses: 2,
+    shipping: 'FREE',
+  },
+  {
+    bottles: 6,
+    supply: '180 Day',
+    price: 294,
+    originalPrice: 474,
+    popular: true,
+    bonuses: 2,
+    shipping: 'FREE',
+  },
+];
+
+const faqItems = [
+  {
+    q: 'Is Mitolyn right for me?',
+    a: 'If you have stubborn fat stores that diet and exercise don\'t seem to remove, Mitolyn is designed for you. It works for people 18-80.',
+  },
+  {
+    q: 'Is Mitolyn safe?',
+    a: 'Mitolyn is made in an FDA-registered, GMP-certified facility. All ingredients are plant-based, soy-free, and non-GMO. Consult your doctor if you\'re pregnant, nursing, or on medications.',
+  },
+  {
+    q: 'How many bottles should I order?',
+    a: 'For best results, take Mitolyn for 3-6 months. This gives your body enough time to experience full benefits.',
+  },
+  {
+    q: 'What if Mitolyn doesn\'t work for me?',
+    a: 'Every bottle comes with a 90-day, 100% money-back guarantee. No questions asked.',
+  },
+];
+---
+
+<BaseLayout title="Mitolyn - Unlock Your Metabolic Power" description="Scientifically-formulated Mitolyn boosts mitochondria to accelerate fat loss, increase energy, and improve overall health.">
+  
+  <!-- Hero Section -->
+  <Section bgColor="gradient" id="hero" class="py-20 md:py-32">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="animate-fade-in">
+        <h1 class="text-4xl md:text-5xl font-bold text-navy-900 mb-4 leading-tight">
+          Unlock Your <span class="text-primary-500">Metabolic Power</span>
+        </h1>
+        <p class="text-xl text-gray-700 mb-8">
+          Burn more calories, feel great, and achieve lasting fat loss with Mitolyn's scientifically-formulated blend of 6 exotic nutrients.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <Button variant="primary" size="lg">Claim Your Mitolyn</Button>
+          <Button variant="secondary" size="lg" href="#ingredients">Learn How It Works</Button>
+        </div>
+        <div class="mt-8 flex gap-6 text-sm">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">✓</span>
+            <span>GMP Certified</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">✓</span>
+            <span>90-Day Guarantee</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">✓</span>
+            <span>Plant-Based</span>
+          </div>
+        </div>
+      </div>
+      <div class="animate-slide-up hidden md:block">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 border-2 border-primary-200">
+          <div class="aspect-square bg-gradient-to-br from-primary-100 to-coral-100 rounded-xl flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-6xl font-bold text-primary-500 mb-2">M</div>
+              <p class="text-gray-600">Mitolyn Capsule</p>
+              <p class="text-xs text-gray-500 mt-4">30 capsules per bottle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Problem Section -->
+  <Section id="problem" title="The Hidden Cause of Stubborn Fat" subtitle="Harvard scientists discovered a shocking truth...">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-navy-50 rounded-2xl p-8 md:p-12 border-l-4 border-primary-500">
+        <p class="text-lg text-gray-700 mb-6">
+          <strong>Low mitochondria levels</strong> is the one common factor in every overweight person. Your mitochondria are tiny "energy engines" in your cells that burn fat and create ATP energy.
+        </p>
+        <p class="text-lg text-gray-700">
+          The more mitochondria you have, the more fat you burn—even while sleeping. Without enough mitochondria, your body can't efficiently convert food into energy, leading to stubborn fat storage.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Solution Section -->
+  <Section id="solution" bgColor="white" title="The Mitolyn Solution" subtitle="6 Exotic Nutrients to Boost Mitochondrial Function">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {ingredients.map((ing) => (
+        <Card class="text-center">
+          <div class="text-4xl mb-4">🧬</div>
+          <h3 class="font-display font-bold text-lg text-navy-900 mb-2">{ing.name}</h3>
+          <p class="text-gray-600">{ing.benefit}</p>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Testimonials Section -->
+  <Section id="testimonials" bgColor="gray" title="Real Results from Real Users" subtitle="Join thousands who've transformed their bodies">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((test) => (
+        <Card>
+          <div class="flex gap-1 mb-4">
+            {[...Array(test.rating)].map(() => (
+              <span class="text-coral-500">★</span>
+            ))}
+          </div>
+          <p class="text-gray-700 mb-6 italic">"{test.text}"</p>
+          <div class="border-t pt-4">
+            <p class="font-bold text-primary-600">{test.name}</p>
+            <p class="text-sm text-gray-500">{test.location}</p>
+            <p class="text-sm font-semibold text-coral-600 mt-2">Lost {test.weight_lost} lbs</p>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Pricing Section -->
+  <Section id="pricing" title="Choose Your Mitolyn Package" subtitle="Save more when you commit to your health">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {pricingOptions.map((option) => (
+        <Card class={`flex flex-col ${option.popular ? 'ring-2 ring-primary-500 md:scale-105' : ''}`}>
+          {option.popular && (
+            <div class="bg-primary-500 text-white text-center py-2 rounded-t-lg -m-6 mb-4 font-bold">
+              MOST POPULAR
+            </div>
+          )}
+          <h3 class="font-display font-bold text-2xl text-navy-900 mb-2">{option.bottles} Bottle{option.bottles > 1 ? 's' : ''}</h3>
+          <p class="text-gray-600 text-sm mb-4">{option.supply} Supply</p>
+          <div class="flex items-baseline gap-2 mb-4">
+            <span class="text-4xl font-bold text-primary-600">${option.price}</span>
+            {option.originalPrice > option.price && (
+              <span class="line-through text-gray-400">${option.originalPrice}</span>
+            )}
+          </div>
+          <ul class="space-y-2 mb-6 flex-grow text-sm">
+            <li class="flex items-center gap-2">
+              <span class="text-primary-500">✓</span>
+              <span>{option.bonuses > 0 ? `${option.bonuses} FREE BONUSES` : 'Quality Formula'}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-primary-500">✓</span>
+              <span>{option.shipping} Shipping</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-primary-500">✓</span>
+              <span>90-Day Money Back</span>
+            </li>
+          </ul>
+          <Button variant="primary" size="lg">Buy Now</Button>
+        </Card>
+      ))}
+    </div>
+  </Section>
+
+  <!-- FAQ Section -->
+  <Section id="faq" bgColor="navy" title="Frequently Asked Questions" subtitle="Everything you need to know about Mitolyn">
+    <div class="max-w-3xl mx-auto space-y-4">
+      {faqItems.map((item, idx) => (
+        <details class="group bg-navy-800 rounded-lg p-6 cursor-pointer hover:bg-navy-700 transition-colors">
+          <summary class="flex items-center justify-between font-bold text-white text-lg">
+            <span>{item.q}</span>
+            <span class="text-2xl group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="mt-4 text-gray-300 leading-relaxed">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Guarantee Section -->
+  <Section id="guarantee" bgColor="gradient" title="100% Satisfaction Guaranteed" subtitle="Your risk is completely eliminated">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="text-6xl mb-6">🛡️</div>
+      <p class="text-lg text-gray-700 mb-6">
+        If you're not astonished by how fast your fat melts away or shocked by your new toned body in the mirror, we'll refund every penny within 90 days. No questions asked.
+      </p>
+      <Button variant="primary" size="lg">Claim Your Mitolyn Today</Button>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <Section id="final-cta" bgColor="navy" class="py-12">
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Unlock Your Metabolic Power?</h2>
+      <Button variant="primary" size="lg">Order Mitolyn Now</Button>
+    </div>
+  </Section>
+
+</BaseLayout>
+
+<style>
+  :global(body) {
+    scroll-behavior: smooth;
+  }
+</style>

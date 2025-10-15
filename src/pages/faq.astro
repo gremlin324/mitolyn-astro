@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Button from '../components/Button.astro';
+
+const faqs = [
+  {
+    category: 'About Mitolyn',
+    questions: [
+      {
+        q: 'Is Mitolyn right for me?',
+        a: 'If you have deep stubborn fat stores that no diet or exercise seems to remove, then Mitolyn is right for you. Mitolyn has changed the lives of thousands of women and men from 18 to 80 and is designed to rapidly liquefy fat even in the worst cases.',
+      },
+      {
+        q: 'How does Mitolyn work?',
+        a: 'Mitolyn works by boosting mitochondrial function—the "powerhouses" of your cells that burn fat and create energy. With 6 clinically-researched ingredients, Mitolyn increases your cellular energy production, helping your body burn more calories throughout the day.',
+      },
+      {
+        q: 'What makes Mitolyn different from other supplements?',
+        a: 'Most weight-loss supplements focus on appetite suppression or stimulants. Mitolyn is unique because it targets the root cause: low mitochondrial levels. By enhancing your cellular energy factories, Mitolyn helps you burn fat naturally and sustainably.',
+      },
+    ],
+  },
+  {
+    category: 'Safety & Quality',
+    questions: [
+      {
+        q: 'Is Mitolyn safe?',
+        a: 'Yes. Mitolyn is a natural proprietary formula manufactured in an FDA-registered and GMP-certified facility using state-of-the-art, precision-engineered machinery under the strictest sterile standards. Each ingredient is 100% plant-based, soy-free, dairy-free, non-GMO, and undergoes third-party testing. As always, consult your physician before taking if you\'re pregnant, nursing, taking medication, or have a medical condition.',
+      },
+      {
+        q: 'Are there any side effects?',
+        a: 'Mitolyn is made with natural, plant-based ingredients and is generally well-tolerated. As with any supplement, some individuals may experience mild digestive adjustments when first starting. If you experience any adverse effects, discontinue use and consult your healthcare provider.',
+      },
+      {
+        q: 'Is Mitolyn tested for purity?',
+        a: 'Absolutely. Every batch of Mitolyn undergoes rigorous third-party testing for purity, potency, and contaminants. We maintain the highest quality standards to ensure you\'re getting exactly what\'s on the label.',
+      },
+    ],
+  },
+  {
+    category: 'Dosage & Usage',
+    questions: [
+      {
+        q: 'How many bottles should I order?',
+        a: 'If you\'re over 35 years old or carry excess weight, we recommend taking Mitolyn for at least 3 to 6 months so it has enough time to work throughout your entire body to support healthy mitochondria levels, reach your desired weight, and lock it in for years into the future. Every 3-bottle package comes with 2 bonus eBooks absolutely free. Or make the smart decision and get the heavily discounted 6-bottle package with 2 bonus eBooks plus free shipping.',
+      },
+      {
+        q: 'What\'s the best way to take Mitolyn?',
+        a: 'Take one capsule of Mitolyn with a big glass of cold water every day. Our proprietary blend will get to work dissolving fat for you even while sleeping.',
+      },
+      {
+        q: 'When should I take Mitolyn?',
+        a: 'For best results, take Mitolyn consistently at the same time each day. Many customers prefer taking it in the morning with breakfast to support their metabolism throughout the day.',
+      },
+      {
+        q: 'Can I take Mitolyn with other supplements?',
+        a: 'While Mitolyn can generally be taken alongside other supplements, we recommend consulting your healthcare provider before combining it with other products, especially if you\'re on prescription medications.',
+      },
+    ],
+  },
+  {
+    category: 'Ordering & Guarantee',
+    questions: [
+      {
+        q: 'Is this a one-time payment?',
+        a: 'Yes. Your order today is a one-time payment with no auto-ship, subscriptions, or hidden charges. You own what you buy—nothing more.',
+      },
+      {
+        q: 'What if Mitolyn doesn\'t work for me?',
+        a: 'Every single bottle of Mitolyn comes with our personal 90-day 100% money-back guarantee. If for any reason you\'re unsatisfied with your results, just return all bottles (even if empty) for a full, no-questions-asked refund.',
+      },
+      {
+        q: 'How long does shipping take?',
+        a: 'Standard shipping typically takes 5-7 business days. 3-Bottle and 6-Bottle packages qualify for FREE shipping.',
+      },
+      {
+        q: 'Is my payment secure?',
+        a: 'Absolutely. We use industry-leading encryption and secure payment processing through ClickBank to protect your personal and financial information.',
+      },
+    ],
+  },
+  {
+    category: 'Results & Expectations',
+    questions: [
+      {
+        q: 'How long until I see results?',
+        a: 'Most users report noticing increased energy and reduced cravings within the first few weeks. Visible fat loss typically becomes apparent within 4-8 weeks when combined with a healthy diet and regular exercise. Individual results vary based on factors like age, current weight, diet, and lifestyle.',
+      },
+      {
+        q: 'Will I gain the weight back after stopping?',
+        a: 'Unlike quick-fix diets, Mitolyn works by enhancing your mitochondrial function—your cellular "engines." By taking it for 3-6 months as recommended, you\'re essentially upgrading your body\'s fat-burning capacity. Combined with healthy habits, these changes tend to be lasting.',
+      },
+      {
+        q: 'Does Mitolyn work without diet and exercise?',
+        a: 'While Mitolyn can help boost your metabolism and energy, combining it with a balanced diet and regular exercise will maximize your results. Mitolyn enhances your body\'s natural fat-burning ability when you\'re taking action toward your goals.',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Mitolyn FAQ - Frequently Asked Questions" description="Find answers to common questions about Mitolyn, its ingredients, usage, and guarantee.">
+  
+  <Section id="hero" bgColor="navy" title="Frequently Asked Questions" subtitle="Everything you need to know about Mitolyn">
+    <div class="max-w-2xl mx-auto text-center text-white">
+      <p class="text-lg">Can't find your answer below? Reach out to our support team anytime.</p>
+    </div>
+  </Section>
+
+  {faqs.map((category) => (
+    <Section id={category.category.toLowerCase().replace(/\s+/g, '-')} title={category.category} bgColor={faqs.indexOf(category) % 2 === 0 ? 'white' : 'gray'}>
+      <div class="max-w-3xl mx-auto space-y-4">
+        {category.questions.map((faq) => (
+          <details class="group bg-white rounded-lg border border-gray-200 hover:border-primary-300 transition-colors">
+            <summary class="flex items-center justify-between p-6 font-bold text-navy-900 text-lg cursor-pointer hover:text-primary-600 transition-colors">
+              <span>{faq.q}</span>
+              <span class="text-2xl text-primary-500 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="px-6 pb-6 text-gray-700 leading-relaxed border-t border-gray-200">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </Section>
+  ))}
+
+  <Section id="contact" bgColor="gradient" class="py-12">
+    <div class="text-center">
+      <h2 class="font-display text-3xl font-bold text-navy-900 mb-4">Still Have Questions?</h2>
+      <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+        Our customer support team is here to help. Reach out anytime and we'll get back to you promptly.
+      </p>
+      <Button variant="primary" size="lg" href="/contact">Contact Support</Button>
+    </div>
+  </Section>
+
+</BaseLayout>

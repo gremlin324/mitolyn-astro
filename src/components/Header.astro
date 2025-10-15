@@ -1,0 +1,79 @@
+---
+import Logo from './Logo.astro';
+---
+
+<header class="sticky top-0 z-50 w-full bg-gradient-to-r from-navy-900 to-navy-800 shadow-lg">
+  <nav class="container mx-auto flex items-center justify-between py-4 px-4">
+    <div class="flex items-center gap-2">
+      <Logo />
+      <span class="hidden md:inline font-display font-bold text-lg text-white">Mitolyn</span>
+    </div>
+
+    <ul class="hidden md:flex items-center gap-8">
+      <li>
+        <a href="/" class="text-white hover:text-primary-300 transition-colors">Home</a>
+      </li>
+      <li>
+        <a href="/ingredients" class="text-white hover:text-primary-300 transition-colors">Ingredients</a>
+      </li>
+      <li>
+        <a href="/bonuses" class="text-white hover:text-primary-300 transition-colors">Bonuses</a>
+      </li>
+      <li>
+        <a href="/faq" class="text-white hover:text-primary-300 transition-colors">FAQ</a>
+      </li>
+    </ul>
+
+    <div class="flex items-center gap-2 md:gap-4">
+      <a href="#pricing" class="hidden sm:inline px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-colors">
+        Buy Now
+      </a>
+      <button class="md:hidden text-white hover:text-primary-300" id="mobile-menu-btn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-navy-800 border-t border-navy-700">
+    <ul class="container mx-auto py-4 px-4 space-y-3">
+      <li>
+        <a href="/" class="block text-white hover:text-primary-300 transition-colors">Home</a>
+      </li>
+      <li>
+        <a href="/ingredients" class="block text-white hover:text-primary-300 transition-colors">Ingredients</a>
+      </li>
+      <li>
+        <a href="/bonuses" class="block text-white hover:text-primary-300 transition-colors">Bonuses</a>
+      </li>
+      <li>
+        <a href="/faq" class="block text-white hover:text-primary-300 transition-colors">FAQ</a>
+      </li>
+      <li class="pt-2">
+        <a href="#pricing" class="block w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg text-center transition-colors">
+          Buy Now
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking on a link
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+</script>
